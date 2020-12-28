@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    function confirmXoa(name){
+      let r = confirm('Do you want to delete ' + name + '?');
+      return r;
+      }
+      </script>
+    <title>Index</title>
+</head>
+<body>
+    
+  <center><h2 style="color:cadetblue;">Toys Shop</h2></center>
+  <div class="container" style="color:chocolate;">
+  <p style="color:rgb(134, 92, 105);">Welcome to my shop!!!!</p> 
+  <p>These is all the products from our shop :</p>            
+  <table class="table table-dark table-hover" style="color:wheat;">
+  
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Color</th>
+            <th>Delete</th>
+           
+        </tr>
+        </thead>
+        <tbody> {{#each model}}
+          
+        <tr>
+            <td>{{productName}}</td>
+            <td>{{price}}</td>
+            <td>{{color}}</td>
+            <td><a href="/delete?id={{_id}}" onclick="return confirmXoa('{{productName}}')">Delete</a></td>
+            
+        </tr>
+          {{/each}}
+          </tbody>
+    </table>
+ 
+      
+       
+      
+   
+    
+    {{> footer}}
+ 
+</html>
